@@ -182,9 +182,9 @@ settings:
 
 /* Root Variables */
 :root {
-  --the-color: #15d00d;
+  --the-color: #00ffb3;
   --the-color-rgb: 35, 255, 24;
-  --the-background-color: #000000;
+  --the-background-color: #353535;
   --the-font: Fira Code;
   --the-font-size: 14px;
   --editor-line-height: 1.3;
@@ -433,13 +433,37 @@ body {
 
 /* Frameless */
 .titlebar-button-container {
-  display:none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 0px;
+}
+
+/* Window control buttons styling */
+.titlebar-button {
+  width: 46px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.titlebar-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.titlebar-button.mod-close:hover {
+  background-color: #e81123;
 }
 .titlebar,
 .titlebar-inner {
   position:fixed;
   top:0;
-  height:12px;
+  height:30px;
   background:transparent;
 }
 /* .workspace-split.mod-left-split > .workspace-tabs {
@@ -1144,10 +1168,18 @@ a:hover {
 }
 .markdown-preview-view input.task-list-item-checkbox {
   margin: 0;
-  width: calc(6.5 * var(--char-width));
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: 2px solid var(--the-color);
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
 }
-.markdown-preview-view .task-list-item-checkbox {
-  filter: hue-rotate(290);
+.markdown-preview-view input.task-list-item-checkbox:checked {
+  background-color: var(--the-color);
 }
 
 /* Embed */
